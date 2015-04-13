@@ -1,0 +1,6 @@
+<h1>Choose your weapon!</h1>
+<body>
+<% @choices.each do |choice| %>
+	<li><a href="/game/result?index=<%= choice %>"><%= choice %></a></li>
+<% end %>
+</body>

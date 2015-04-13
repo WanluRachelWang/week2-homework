@@ -1,0 +1,28 @@
+<h1>Dice Game</h1>
+<img src="http://jeffcohenonline.com/dice/<%= @number1 %>.png">
+<img src="http://jeffcohenonline.com/dice/<%= @number2 %>.png">
+<% if @goal == 0 %>
+<% if @sum == 7 or @sum == 11 %><p>You win!</p><a href="/dice">Start Again!</a>
+<% else %>
+<% if @sum ==2 or @sum==3 or @sum==12 %><p>You lose!</p><a href="/dice">Start Again!</a>
+<% else%> 
+   <% @goal=@number1+@number2 %>
+   <p>Your Goal is now <%= @goal %>.</p><p> Now try to get <%= @goal %> again before you roll a 7.</p><p><a href="/dice/roll?point=<%= @goal %>">Roll Again!</a></p>
+   <!-- sum =@number1+@number2 -->
+   <!-- while  -->
+<% end %>
+<% end %>
+<% else %>
+<% if @sum != @goal and @sum !=7%>
+	<p>Your goal is <%= @goal %> but you rolled <%= @sum %>. You can roll again.</p>
+    <p><a href="/dice/roll?point=<%= @goal%>">Roll Again!</a></p>
+<% else %>
+    <% if @sum == @goal %>
+    	<p>You win!</p>
+    	<a href="/dice">Start Over</a>
+    <% else %>
+    	<p>You lose!</p>
+    	<a href="/dice">Start Over</a>
+    <% end %>
+<% end %>
+<% end %>
